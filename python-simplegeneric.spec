@@ -1,24 +1,18 @@
 %define	module	simplegeneric
-%define name	python-%{module}
+%define name	python2-%{module}
 %define version	0.8.1
-%define rel		1
-%if %mdkversion < 201100
-%define release	%mkrel %{rel}
-%else
-%define release %{rel}
-%endif
 
 Summary:	Simple generic Python functions
 Name:		%{name}
 Version:	%{version}
-Release:	%{release}
+Release:	8
 Source0:	http://pypi.python.org/packages/source/s/%{module}/%{module}-%{version}.zip
 License:	ZPL
 Group:		Development/Python
 Url:		http://pypi.python.org/pypi/simplegeneric/
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch:	noarch
-BuildRequires:	python-setuptools
+BuildRequires:	python2-setuptools
+%rename		python-simplegeneric
 
 %description
 The simplegeneric module lets you define simple single-dispatch
@@ -32,19 +26,15 @@ the Python standard library.
 %setup -q -n %{module}-%{version}
 
 %build
-%__python setup.py build
+%__python2 setup.py build
 
 %install
-%__rm -rf %{buildroot}
-PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot}
-
-%clean
-%__rm -rf %{buildroot}
+PYTHONDONTWRITEBYTECODE= %__python2 setup.py install --root=%{buildroot}
 
 %files
 %defattr(-,root,root)
 %doc README.txt
-%py_sitedir/simplegeneric*
+%py2_puresitedir/simplegeneric*
 
 
 %changelog
