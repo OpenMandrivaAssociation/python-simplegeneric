@@ -9,7 +9,7 @@ Release:	8
 Source0:	http://pypi.python.org/packages/source/s/%{module}/%{module}-%{version}.zip
 License:	ZPL
 Group:		Development/Python
-Url:		http://pypi.python.org/pypi/simplegeneric/
+Url:		https://pypi.python.org/pypi/simplegeneric/
 BuildArch:	noarch
 BuildRequires:	python2-setuptools
 %rename		python-simplegeneric
